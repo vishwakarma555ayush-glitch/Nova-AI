@@ -1,0 +1,432 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NOVA AI</title>
+
+    <!-- Main Home Page CSS -->
+    <link rel="stylesheet" href="home.css">
+
+    <!-- Cinematic Intro CSS -->
+    <link rel="stylesheet" href="intro.css">
+
+    <!-- Markdown Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@3.2.6/dist/purify.min.js"></script>
+</head>
+
+<body>
+
+    <!-- =====================================
+         NOVA CINEMATIC INTRO
+    ====================================== -->
+
+    <div id="nova-intro" class="nova-intro" hidden>
+
+        <div class="intro-background"></div>
+
+        <div class="intro-grid"></div>
+
+        <div class="intro-particles" id="intro-particles"></div>
+
+        <div class="intro-core">
+
+            <div class="intro-ring ring-one"></div>
+            <div class="intro-ring ring-two"></div>
+            <div class="intro-ring ring-three"></div>
+
+            <div class="intro-scanner"></div>
+
+            <div class="intro-orb">
+                <span>✦</span>
+            </div>
+
+        </div>
+
+        <div class="intro-brand">
+
+            <div class="intro-logo">
+                NOVA <span>AI</span>
+            </div>
+
+            <div class="intro-line"></div>
+
+            <h1>WELCOME TO NOVA AI</h1>
+
+            <p>YOUR INTELLIGENT AI ASSISTANT</p>
+
+            <small>CREATED BY AYUSH</small>
+
+        </div>
+
+        <div class="intro-loading">
+            <div class="intro-loading-bar"></div>
+        </div>
+
+        <button id="skip-intro" type="button">
+            SKIP INTRO →
+        </button>
+
+    </div>
+
+
+    <!-- =====================================
+         MAIN APPLICATION
+    ====================================== -->
+
+    <div class="app">
+
+        <!-- SIDEBAR -->
+
+        <aside class="sidebar">
+
+            <div class="creator-brand">
+                CREATED BY <span>AYUSH</span>
+            </div>
+
+            <div class="logo">
+                ✦ NOVA <span>AI</span>
+            </div>
+
+            <button class="new-chat" id="new-chat">
+                + New Chat
+            </button>
+
+            <div class="menu-title">WORKSPACE</div>
+
+            <button class="menu-item" id="explore-menu-button">
+                ✧ Explore
+            </button>
+
+            <button class="menu-item" id="nova-history-button">
+                ◷ History
+            </button>
+
+            <button class="menu-item" id="settings-menu-button">
+                ⚙ Settings
+            </button>
+
+            <div class="history">
+                <p>Your conversations will appear here.</p>
+            </div>
+
+            <button class="profile" id="profile-menu-button">
+
+                <div class="avatar" id="profile-avatar">
+                    A
+                </div>
+
+                <div>
+                    <strong id="profile-name">Ayush</strong>
+                    <small>Free Plan</small>
+                </div>
+
+                <span>⋯</span>
+
+            </button>
+
+            <div id="profile-menu" hidden>
+
+                <button id="edit-profile-button">Edit Profile</button>
+                <button id="add-account-button">Add Account</button>
+                <button id="theme-toggle-button">Toggle Theme</button>
+                <button id="about-nova-button">About NOVA</button>
+
+            </div>
+
+            <div id="sidebar-resize-handle"></div>
+
+        </aside>
+
+
+        <!-- MAIN CONTENT -->
+
+        <main class="main">
+
+            <header>
+
+                <div class="mobile-logo">
+                    ✦ NOVA AI
+                </div>
+
+                <div class="status">
+                    <span></span>
+                    NOVA Online
+                </div>
+
+            </header>
+
+
+            <div class="conversation-scroll" id="conversation-scroll">
+
+                <!-- WELCOME SCREEN -->
+
+                <section class="welcome" id="welcome-screen">
+
+                    <div class="orb-stage" id="orb-stage">
+
+                        <div class="orb-aura"></div>
+
+                        <canvas id="nova-orb"></canvas>
+
+                        <div class="orb-reflection"></div>
+
+                    </div>
+
+                    <p class="eyebrow">
+                        YOUR PERSONAL AI ASSISTANT
+                    </p>
+
+                    <h1>
+                        Welcome to <span>NOVA AI</span>
+                    </h1>
+
+                    <p class="subtitle">
+                        What would you like to explore today?
+                    </p>
+
+                    <div class="suggestions">
+
+                        <button class="suggestion">
+                            <span>✧</span>
+                            <strong>Learn Something</strong>
+                            <small>Explore new topics</small>
+                        </button>
+
+                        <button class="suggestion">
+                            <span>⌘</span>
+                            <strong>Write Code</strong>
+                            <small>Build something amazing</small>
+                        </button>
+
+                        <button class="suggestion">
+                            <span>✦</span>
+                            <strong>Get Creative</strong>
+                            <small>Generate new ideas</small>
+                        </button>
+
+                    </div>
+
+                </section>
+
+
+                <!-- CHAT MESSAGES -->
+
+                <div
+                    id="messages"
+                    class="chat-messages"
+                    hidden
+                ></div>
+
+            </div>
+
+
+            <!-- CHAT INPUT -->
+
+            <section class="chat-area">
+
+                <div class="input-box">
+
+                    <div class="input-top">
+
+                        <label for="model-selector">
+                            MODEL
+                        </label>
+
+                        <select id="model-selector">
+                            <option value="">Loading models...</option>
+                        </select>
+
+                        <span id="model-status">
+                            Connecting...
+                        </span>
+
+                    </div>
+
+
+                    <textarea
+                        id="user-input"
+                        placeholder="Message NOVA AI..."
+                    ></textarea>
+
+
+                    <div class="input-bottom">
+
+                        <span>
+                            NOVA can make mistakes. Verify important information.
+                        </span>
+
+                        <div class="voice-controls">
+
+                            <button id="voice-btn" title="Voice Input">
+                                🎤
+                            </button>
+
+                            <button id="speaker-btn" title="Voice Output">
+                                🔊
+                            </button>
+
+                            <button id="stop-btn" hidden title="Stop">
+                                ■
+                            </button>
+
+                            <button id="send-btn" title="Send">
+                                ↑
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                    <div
+                        class="voice-status"
+                        id="voice-status"
+                    ></div>
+
+                </div>
+
+            </section>
+
+
+            <footer>
+                © 2026 NOVA AI · Created by Ayush
+            </footer>
+
+        </main>
+
+    </div>
+
+
+    <!-- =====================================
+         SETTINGS
+    ====================================== -->
+
+    <div
+        class="settings-overlay"
+        id="settings-overlay"
+        hidden
+    >
+
+        <div class="settings-panel">
+
+            <div class="settings-header">
+
+                <div>
+                    <p class="eyebrow">PERSONALIZE</p>
+                    <h2>Settings</h2>
+                </div>
+
+                <button id="close-settings">
+                    ✕
+                </button>
+
+            </div>
+
+
+            <div class="settings-section">
+
+                <h3>Voice Settings</h3>
+
+                <div class="setting-row">
+
+                    <div>
+                        <strong>Voice Output</strong>
+                        <small>Allow NOVA to speak responses</small>
+                    </div>
+
+                    <input
+                        type="checkbox"
+                        id="voice-output-toggle"
+                    >
+
+                </div>
+
+
+                <div class="setting-row setting-column">
+
+                    <strong>Voice Language</strong>
+
+                    <select id="voice-language">
+                        <option value="en-US">English (US)</option>
+                        <option value="en-IN">English (India)</option>
+                        <option value="hi-IN">Hindi</option>
+                    </select>
+
+                </div>
+
+
+                <div class="setting-row setting-column">
+
+                    <strong>Speech Speed</strong>
+
+                    <input
+                        type="range"
+                        id="voice-rate"
+                        min="0.5"
+                        max="2"
+                        step="0.1"
+                        value="1"
+                    >
+
+                    <span id="voice-rate-value">1.0x</span>
+
+                </div>
+
+            </div>
+
+
+            <div class="settings-section">
+
+                <h3>AI Models</h3>
+
+                <p>
+                    Refresh available AI models.
+                </p>
+
+                <button id="refresh-models">
+                    Refresh Models
+                </button>
+
+                <p id="settings-model-status"></p>
+
+            </div>
+
+
+            <div class="settings-section">
+
+                <h3>Visual Settings</h3>
+
+                <p>
+                    Manage NOVA's visual response settings.
+                </p>
+
+                <div id="visual-settings"></div>
+
+            </div>
+
+
+            <div class="settings-footer">
+
+                <span>NOVA AI</span>
+
+                <small>Version 1.0</small>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- INTRO SCRIPT -->
+    <script src="intro.js"></script>
+
+    <!-- MAIN HOME SCRIPT -->
+    <script src="home.js"></script>
+
+</body>
+</html>

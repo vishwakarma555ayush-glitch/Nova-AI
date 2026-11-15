@@ -1,0 +1,235 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#080710">
+
+    <title>NOVA AI | Welcome</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="script.js"></script>
+</head>
+
+<body>
+
+    <div class="background-effects">
+        <div class="glow glow-one"></div>
+        <div class="glow glow-two"></div>
+        <div class="grid-overlay"></div>
+        <div class="particles" id="particles"></div>
+    </div>
+
+    <main class="login-wrapper">
+
+        <section class="login-box">
+
+            <div class="brand">
+                <div class="brand-icon">✦</div>
+                <h1>NOVA <span>AI</span></h1>
+                <p>YOUR INTELLIGENT AI ASSISTANT</p>
+            </div>
+
+            <div class="welcome-label">
+                <span class="online-dot"></span>
+                SECURE ACCESS PORTAL
+            </div>
+
+            <!-- LOGIN -->
+
+            <section id="login-section">
+
+                <h2>Welcome <span>Back.</span></h2>
+                <p class="section-description">
+                    Sign in to continue your journey with NOVA.
+                </p>
+
+                <form id="login-form">
+
+                    <label for="login-email">Email Address</label>
+                    <input
+                        type="email"
+                        id="login-email"
+                        placeholder="you@example.com"
+                        autocomplete="email"
+                        required
+                    >
+
+                    <label for="login-password">Password</label>
+
+                    <div class="password-field">
+                        <input
+                            type="password"
+                            id="login-password"
+                            placeholder="Enter your password"
+                            autocomplete="current-password"
+                            required
+                        >
+                        <button type="button" class="password-toggle"
+                            data-target="login-password">SHOW</button>
+                    </div>
+
+                    <button type="submit" class="primary-button">
+                        <span>Sign In</span>
+                        <span class="button-arrow">→</span>
+                    </button>
+
+                </form>
+
+                <p class="switch-text">
+                    New to NOVA?
+                    <button type="button" id="show-signup">Create Account</button>
+                </p>
+
+            </section>
+
+
+            <!-- SIGNUP -->
+
+            <section id="signup-section" hidden>
+
+                <h2>Create <span>Account.</span></h2>
+                <p class="section-description">
+                    Start your journey with your own NOVA account.
+                </p>
+
+                <form id="signup-form">
+
+                    <label for="signup-name">Full Name</label>
+                    <input
+                        type="text"
+                        id="signup-name"
+                        placeholder="Your name"
+                        autocomplete="name"
+                        required
+                    >
+
+                    <label for="signup-email">Email Address</label>
+                    <input
+                        type="email"
+                        id="signup-email"
+                        placeholder="you@example.com"
+                        autocomplete="email"
+                        required
+                    >
+
+                    <label for="signup-password">Create Password</label>
+
+                    <div class="password-field">
+                        <input
+                            type="password"
+                            id="signup-password"
+                            placeholder="Minimum 8 characters"
+                            minlength="8"
+                            autocomplete="new-password"
+                            required
+                        >
+                        <button type="button" class="password-toggle"
+                            data-target="signup-password">SHOW</button>
+                    </div>
+
+                    <button type="submit" class="primary-button">
+                        <span>Create Account</span>
+                        <span class="button-arrow">→</span>
+                    </button>
+
+                </form>
+
+                <p class="switch-text">
+                    Already registered?
+                    <button type="button" id="show-login">Sign In</button>
+                </p>
+
+            </section>
+
+
+            <!-- EMAIL VERIFICATION -->
+
+            <section id="email-verification" hidden>
+
+                <div class="verification-icon">✉</div>
+
+                <h2>Verify Your <span>Email.</span></h2>
+
+                <p class="section-description">
+                    A verification link has been sent to your email.
+                    Open your inbox and verify your account.
+                </p>
+
+                <button type="button" class="primary-button"
+                    id="check-email">
+                    <span>I've Verified My Email</span>
+                    <span class="button-arrow">→</span>
+                </button>
+
+            </section>
+
+
+            <!-- PHONE VERIFICATION -->
+
+            <section id="phone-verification" hidden>
+
+                <div class="verification-icon">✦</div>
+
+                <h2>Mobile <span>Verification.</span></h2>
+
+                <p class="section-description">
+                    Verify your mobile number to secure your NOVA account.
+                </p>
+
+                <label for="signup-phone">Mobile Number</label>
+
+                <input
+                    type="tel"
+                    id="signup-phone"
+                    placeholder="+91XXXXXXXXXX"
+                    autocomplete="tel"
+                >
+
+                <div id="recaptcha-container"></div>
+
+                <button type="button" class="primary-button"
+                    id="send-otp">
+                    <span>Send OTP</span>
+                    <span class="button-arrow">→</span>
+                </button>
+
+                <label for="otp-code">Verification Code</label>
+
+                <input
+                    type="text"
+                    id="otp-code"
+                    placeholder="Enter 6-digit OTP"
+                    maxlength="6"
+                    inputmode="numeric"
+                    autocomplete="one-time-code"
+                >
+
+                <button type="button" class="secondary-button"
+                    id="verify-otp">
+                    Verify Mobile Number
+                </button>
+
+            </section>
+
+
+            <div id="message" class="message" role="status"
+                aria-live="polite"></div>
+
+            <div class="security-note">
+                <span>🔒</span>
+                Your account is protected by Firebase Authentication
+            </div>
+
+        </section>
+
+        <footer>
+            <span>© 2026 NOVA AI</span>
+            <span>CREATED BY AYUSH</span>
+        </footer>
+
+    </main>
+
+</body>
+</html>
